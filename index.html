@@ -6,7 +6,7 @@
 <title>London 2026 — Connor & Gabby</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
-
+ 
   :root {
     --bg: #0f0f13;
     --surface: #18181f;
@@ -25,9 +25,9 @@
     --tube-northern: #000000;
     --tube-elizabeth: #6950a1;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -35,7 +35,7 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
+ 
   /* HEADER */
   .header {
     position: sticky;
@@ -46,14 +46,14 @@
     border-bottom: 1px solid var(--border);
     padding: 12px 16px;
   }
-
+ 
   .header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
   }
-
+ 
   .header-title {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
@@ -61,15 +61,15 @@
     color: var(--accent);
     letter-spacing: 0.02em;
   }
-
+ 
   .header-sub {
     font-size: 11px;
     color: var(--muted);
     font-weight: 400;
   }
-
+ 
   .flag { font-size: 20px; }
-
+ 
   /* DAY TABS */
   .tabs-wrapper {
     overflow-x: auto;
@@ -77,14 +77,14 @@
     scrollbar-width: none;
   }
   .tabs-wrapper::-webkit-scrollbar { display: none; }
-
+ 
   .tabs {
     display: flex;
     gap: 6px;
     padding-bottom: 2px;
     width: max-content;
   }
-
+ 
   .tab {
     padding: 6px 12px;
     border-radius: 20px;
@@ -99,34 +99,34 @@
     transition: all 0.2s;
     -webkit-appearance: none;
   }
-
+ 
   .tab.active {
     background: var(--accent);
     border-color: var(--accent);
     color: #0f0f13;
     font-weight: 600;
   }
-
+ 
   .tab:not(.active):active {
     background: var(--surface2);
     color: var(--text);
   }
-
+ 
   /* MAIN CONTENT */
   .content {
     padding: 16px;
     max-width: 600px;
     margin: 0 auto;
   }
-
+ 
   .day-panel { display: none; }
   .day-panel.active { display: block; animation: fadeIn 0.25s ease; }
-
+ 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+ 
   /* DAY HERO */
   .day-hero {
     background: var(--surface);
@@ -137,7 +137,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .day-hero::before {
     content: '';
     position: absolute;
@@ -146,7 +146,7 @@
     background: radial-gradient(circle, rgba(200,169,110,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-
+ 
   .day-num {
     font-size: 11px;
     font-weight: 600;
@@ -155,7 +155,7 @@
     letter-spacing: 0.1em;
     margin-bottom: 4px;
   }
-
+ 
   .day-title {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
@@ -164,26 +164,26 @@
     line-height: 1.2;
     margin-bottom: 8px;
   }
-
+ 
   .day-date {
     font-size: 13px;
     color: var(--muted);
   }
-
+ 
   .day-emoji {
     position: absolute;
     top: 16px; right: 16px;
     font-size: 36px;
     opacity: 0.6;
   }
-
+ 
   .day-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-top: 12px;
   }
-
+ 
   .tag {
     padding: 3px 10px;
     border-radius: 20px;
@@ -193,11 +193,11 @@
     color: var(--muted);
     border: 1px solid var(--border);
   }
-
+ 
   .tag.urgent { background: rgba(224,82,82,0.15); color: var(--red); border-color: rgba(224,82,82,0.3); }
   .tag.good { background: rgba(94,196,138,0.12); color: var(--green); border-color: rgba(94,196,138,0.3); }
   .tag.info { background: rgba(126,184,212,0.12); color: var(--accent2); border-color: rgba(126,184,212,0.3); }
-
+ 
   /* SECTION LABEL */
   .section-label {
     font-size: 10px;
@@ -208,7 +208,7 @@
     margin: 20px 0 10px;
     padding-left: 4px;
   }
-
+ 
   /* STOP CARD */
   .stop-card {
     background: var(--surface);
@@ -218,9 +218,9 @@
     overflow: hidden;
     transition: border-color 0.2s;
   }
-
+ 
   .stop-card:active { border-color: var(--accent); }
-
+ 
   .stop-main {
     display: flex;
     align-items: flex-start;
@@ -228,7 +228,7 @@
     gap: 12px;
     cursor: pointer;
   }
-
+ 
   .stop-time {
     font-size: 11px;
     font-weight: 600;
@@ -237,9 +237,9 @@
     padding-top: 2px;
     font-variant-numeric: tabular-nums;
   }
-
+ 
   .stop-info { flex: 1; }
-
+ 
   .stop-name {
     font-size: 15px;
     font-weight: 600;
@@ -247,13 +247,13 @@
     margin-bottom: 3px;
     line-height: 1.3;
   }
-
+ 
   .stop-note {
     font-size: 12px;
     color: var(--muted);
     line-height: 1.4;
   }
-
+ 
   .stop-chevron {
     color: var(--muted);
     font-size: 14px;
@@ -261,18 +261,18 @@
     transition: transform 0.2s;
     flex-shrink: 0;
   }
-
+ 
   .stop-card.expanded .stop-chevron { transform: rotate(90deg); }
-
+ 
   .stop-detail {
     display: none;
     border-top: 1px solid var(--border);
     padding: 14px;
     background: var(--surface2);
   }
-
+ 
   .stop-card.expanded .stop-detail { display: block; animation: fadeIn 0.2s ease; }
-
+ 
   /* TRANSIT PILL */
   .transit-row {
     display: flex;
@@ -280,7 +280,7 @@
     gap: 8px;
     margin-bottom: 12px;
   }
-
+ 
   .transit-pill {
     display: inline-flex;
     align-items: center;
@@ -296,62 +296,62 @@
     -webkit-appearance: none;
     background: transparent;
   }
-
+ 
   .transit-pill:active { opacity: 0.7; }
-
+ 
   .pill-tube {
     background: rgba(0,125,50,0.15);
     color: #4dba7f;
     border-color: rgba(0,125,50,0.3);
   }
-
+ 
   .pill-tube.central {
     background: rgba(227,32,23,0.12);
     color: #f07070;
     border-color: rgba(227,32,23,0.3);
   }
-
+ 
   .pill-tube.piccadilly {
     background: rgba(0,54,136,0.2);
     color: #7da8e8;
     border-color: rgba(0,54,136,0.4);
   }
-
+ 
   .pill-tube.elizabeth {
     background: rgba(105,80,161,0.15);
     color: #b09de0;
     border-color: rgba(105,80,161,0.3);
   }
-
+ 
   .pill-tube.circle {
     background: rgba(255,211,41,0.1);
     color: #d4a800;
     border-color: rgba(255,211,41,0.3);
   }
-
+ 
   .pill-uber {
     background: rgba(255,255,255,0.06);
     color: var(--text);
     border-color: var(--border);
   }
-
+ 
   .pill-walk {
     background: rgba(126,184,212,0.1);
     color: var(--accent2);
     border-color: rgba(126,184,212,0.25);
   }
-
+ 
   .pill-icon { font-size: 14px; }
-
+ 
   .detail-text {
     font-size: 13px;
     color: var(--muted);
     line-height: 1.6;
     margin-top: 8px;
   }
-
+ 
   .detail-text strong { color: var(--text); font-weight: 500; }
-
+ 
   .book-link {
     display: inline-flex;
     align-items: center;
@@ -367,7 +367,7 @@
     text-decoration: none;
     cursor: pointer;
   }
-
+ 
   /* ALERT CARD */
   .alert {
     border-radius: 12px;
@@ -377,17 +377,17 @@
     line-height: 1.5;
     border: 1px solid;
   }
-
+ 
   .alert-title {
     font-weight: 600;
     font-size: 13px;
     margin-bottom: 4px;
   }
-
+ 
   .alert.red { background: rgba(224,82,82,0.1); border-color: rgba(224,82,82,0.3); color: #f09090; }
   .alert.gold { background: rgba(200,169,110,0.1); border-color: rgba(200,169,110,0.3); color: #d4b87a; }
   .alert.blue { background: rgba(126,184,212,0.1); border-color: rgba(126,184,212,0.3); color: #8ec8e0; }
-
+ 
   /* INFO CARD */
   .info-card {
     background: var(--surface);
@@ -396,7 +396,7 @@
     padding: 16px;
     margin-bottom: 10px;
   }
-
+ 
   .info-card h3 {
     font-size: 13px;
     font-weight: 600;
@@ -405,7 +405,7 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
-
+ 
   .info-row {
     display: flex;
     justify-content: space-between;
@@ -414,16 +414,16 @@
     border-bottom: 1px solid var(--border);
     gap: 12px;
   }
-
+ 
   .info-row:last-child { border-bottom: none; }
-
+ 
   .info-label {
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
     flex: 1;
   }
-
+ 
   .info-val {
     font-size: 12px;
     color: var(--muted);
@@ -431,7 +431,7 @@
     flex: 1.2;
     line-height: 1.4;
   }
-
+ 
   /* CHECKLIST */
   .checklist-item {
     display: flex;
@@ -445,12 +445,12 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-
+ 
   .checklist-item.checked {
     opacity: 0.5;
     background: var(--surface2);
   }
-
+ 
   .checkbox {
     width: 20px;
     height: 20px;
@@ -464,18 +464,18 @@
     transition: all 0.2s;
     margin-top: 1px;
   }
-
+ 
   .checklist-item.checked .checkbox {
     background: var(--green);
     border-color: var(--green);
     color: #0f0f13;
   }
-
+ 
   .check-label { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.3; }
   .check-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
+ 
   .checklist-item.checked .check-label { text-decoration: line-through; }
-
+ 
   /* FOOD TABLE */
   .food-item {
     background: var(--surface);
@@ -484,11 +484,11 @@
     padding: 12px 14px;
     margin-bottom: 8px;
   }
-
+ 
   .food-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
   .food-what { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
   .food-tip { font-size: 12px; color: var(--muted); line-height: 1.4; }
-
+ 
   /* BOTTOM NAV */
   .bottom-nav {
     position: fixed;
@@ -501,7 +501,7 @@
     padding: 8px 0 max(8px, env(safe-area-inset-bottom));
     z-index: 100;
   }
-
+ 
   .nav-btn {
     display: flex;
     flex-direction: column;
@@ -517,23 +517,23 @@
     cursor: pointer;
     transition: color 0.2s;
   }
-
+ 
   .nav-btn.active { color: var(--accent); }
   .nav-btn .nav-icon { font-size: 20px; }
-
+ 
   .main-content { padding-bottom: 80px; }
-
+ 
   /* SECTION VIEWS */
   .section-view { display: none; }
   .section-view.active { display: block; }
-
+ 
   /* DIVIDER */
   .divider {
     height: 1px;
     background: var(--border);
     margin: 16px 0;
   }
-
+ 
   /* PROGRESS */
   .progress-bar {
     height: 3px;
@@ -542,20 +542,20 @@
     margin-top: 10px;
     overflow: hidden;
   }
-
+ 
   .progress-fill {
     height: 100%;
     background: var(--green);
     border-radius: 2px;
     transition: width 0.4s ease;
   }
-
+ 
   .progress-label {
     font-size: 11px;
     color: var(--muted);
     margin-top: 4px;
   }
-
+ 
   /* HOTEL/AIRBNB CARD */
   .stay-card {
     background: linear-gradient(135deg, rgba(200,169,110,0.1), rgba(126,184,212,0.08));
@@ -564,14 +564,14 @@
     padding: 16px;
     margin-bottom: 16px;
   }
-
+ 
   .stay-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 6px; }
   .stay-name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
   .stay-addr { font-size: 12px; color: var(--muted); }
 </style>
 </head>
 <body>
-
+ 
 <div class="header">
   <div class="header-top">
     <div>
@@ -593,13 +593,13 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="main-content">
-
+ 
   <!-- DAYS VIEW -->
   <div class="section-view active" id="view-days">
     <div class="content">
-
+ 
       <!-- DAY 0: JUN 12 -->
       <div class="day-panel active" id="day-0">
         <div class="day-hero">
@@ -612,20 +612,20 @@
             <span class="tag">Royal Eagle Hotel</span>
           </div>
         </div>
-
+ 
         <div class="stay-card">
           <div class="stay-label">Tonight's Stay</div>
           <div class="stay-name">Royal Eagle Hotel</div>
           <div class="stay-addr">26–30 Craven Road, Paddington, London</div>
         </div>
-
+ 
         <div class="alert blue">
           <div class="alert-title">🚆 Heathrow → Hotel</div>
           Elizabeth line from any Heathrow terminal to Paddington. ~15 min, runs every few minutes. Buy ticket at machine or tap contactless. Walk ~8 min to hotel from Paddington.
         </div>
-
+ 
         <div class="section-label">Afternoon Plan</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">~1:30pm</div>
@@ -642,7 +642,7 @@
             <div class="detail-text">26–30 Craven Road. Get settled, change clothes if needed. You'll be off the plane ~12pm so with bags and transit you're probably here by 1:30pm.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">~2:30pm</div>
@@ -659,7 +659,7 @@
             <div class="detail-text">Grab a coffee near the hotel and walk into Hyde Park. Easy, free, no planning required. Good way to shake off the flight. Walk along the Serpentine lake.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">~4:00pm</div>
@@ -677,7 +677,7 @@
             <div class="detail-text">Portobello Road Market is quieter on Fridays — good for a relaxed wander without Saturday crowds. Pick up snacks, explore the streets. Good intro to London without overwhelming yourself day 1.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">Evening</div>
@@ -692,7 +692,7 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- DAY 1: JUN 13 -->
       <div class="day-panel" id="day-1">
         <div class="day-hero">
@@ -706,20 +706,20 @@
             <span class="tag urgent">Tower of London — pre-book</span>
           </div>
         </div>
-
+ 
         <div class="alert gold">
           <div class="alert-title">📦 Airbnb Checkin at 2pm</div>
           1 Seagrave Road, Fulham. Morning free — do Portobello Road first, then head to Fulham to check in around 2pm, drop bags, and head out for the afternoon.
         </div>
-
+ 
         <div class="stay-card">
           <div class="stay-label">Checking In Today</div>
           <div class="stay-name">Airbnb — Fulham</div>
           <div class="stay-addr">1 Seagrave Road · Nearest tube: Fulham Broadway (District line)</div>
         </div>
-
+ 
         <div class="section-label">Morning — Portobello Road</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">10:00am</div>
@@ -737,9 +737,9 @@
             <div class="detail-text">Saturday is peak day for Portobello. Best vintage section is mid-road heading north. Grab breakfast from a stall. Allow 1.5–2 hrs then head to Fulham to check in.</div>
           </div>
         </div>
-
+ 
         <div class="section-label">Afternoon — After Checkin</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">2:00pm</div>
@@ -756,7 +756,7 @@
             <div class="detail-text">1 Seagrave Road. Fulham Broadway station is District line, 2 min walk from the Airbnb.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">3:00pm</div>
@@ -774,7 +774,7 @@
             <div class="detail-text">Free to walk past and photograph. Changing of the Guard usually 11am daily in summer — you'll have missed it but it's still impressive. Walk through St James's Park to Westminster.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">3:45pm</div>
@@ -792,7 +792,7 @@
             <a class="book-link" href="https://www.westminster-abbey.org" target="_blank">📎 westminster-abbey.org</a>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">5:30pm</div>
@@ -809,10 +809,28 @@
             <div class="detail-text">Walk across Westminster Bridge for the classic Big Ben shot. Then walk east along the South Bank toward Borough Market and Tower Bridge.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
-            <div class="stop-time">6:30pm</div>
+            <div class="stop-time">5:45pm</div>
+            <div class="stop-info">
+              <div class="stop-name">London Eye</div>
+              <div class="stop-note">~£30pp · Pre-book · 30 min ride</div>
+            </div>
+            <div class="stop-chevron">›</div>
+          </div>
+          <div class="stop-detail">
+            <div class="transit-row">
+              <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 5 min walk from Westminster Bridge</span>
+            </div>
+            <div class="detail-text">135m observation wheel on the South Bank. 30 min slow rotation with stunning views over Westminster and the city. <strong>Pre-book at londoneye.com</strong> — walk-up queues are long. Evening light is great for photos.</div>
+            <a class="book-link" href="https://www.londoneye.com" target="_blank">📎 londoneye.com</a>
+          </div>
+        </div>
+ 
+        <div class="stop-card" onclick="toggleStop(this)">
+          <div class="stop-main">
+            <div class="stop-time">7:00pm</div>
             <div class="stop-info">
               <div class="stop-name">Borough Market</div>
               <div class="stop-note">Dinner — graze the stalls</div>
@@ -824,10 +842,10 @@
               <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 30 min walk along South Bank from Westminster</span>
               <span class="transit-pill pill-tube"><span class="pill-icon">🚇</span> Westminster → London Bridge (Jubilee)</span>
             </div>
-            <div class="detail-text">Open until 5pm weekdays but <strong>open until late on Saturdays</strong> — perfect. Mushroom risotto, chocolate strawberries, Turkish coffee. Don't eat beforehand.</div>
+            <div class="detail-text">Open Tue–Sat. <strong>Saturday June 13 — open late, perfect timing.</strong> Mushroom risotto, chocolate strawberries, Turkish coffee. Don't eat beforehand.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">8:00pm</div>
@@ -846,43 +864,25 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- DAY 2: JUN 14 -->
       <div class="day-panel" id="day-2">
         <div class="day-hero">
           <div class="day-emoji">🌿</div>
           <div class="day-num">Day 2</div>
-          <div class="day-title">Hyde Park & South Ken Museums</div>
+          <div class="day-title">South Ken Museums</div>
           <div class="day-date">Sunday, June 14</div>
           <div class="day-tags">
             <span class="tag good">All free museums</span>
             <span class="tag info">Right on your doorstep</span>
           </div>
         </div>
-
+ 
         <div class="section-label">Stops</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
-            <div class="stop-time">9:30am</div>
-            <div class="stop-info">
-              <div class="stop-name">Hyde Park & Kensington Gardens</div>
-              <div class="stop-note">Morning walk — Serpentine, Albert Memorial</div>
-            </div>
-            <div class="stop-chevron">›</div>
-          </div>
-          <div class="stop-detail">
-            <div class="transit-row">
-              <span class="transit-pill pill-tube"><span class="pill-icon">🚇</span> Fulham Broadway → South Kensington (District)</span>
-              <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 10 min walk into park</span>
-            </div>
-            <div class="detail-text">Walk through Kensington Gardens into Hyde Park. Look for the Peter Pan statue, Diana Memorial Fountain, and Serpentine lake. Grab a coffee from a kiosk.</div>
-          </div>
-        </div>
-
-        <div class="stop-card" onclick="toggleStop(this)">
-          <div class="stop-main">
-            <div class="stop-time">11:30am</div>
+            <div class="stop-time">10:00am</div>
             <div class="stop-info">
               <div class="stop-name">Natural History Museum</div>
               <div class="stop-note">Free · Pre-book timed entry · Blue whale skeleton</div>
@@ -891,13 +891,14 @@
           </div>
           <div class="stop-detail">
             <div class="transit-row">
-              <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 10 min walk from Kensington Gardens</span>
+              <span class="transit-pill pill-tube"><span class="pill-icon">🚇</span> Fulham Broadway → South Kensington (District)</span>
+              <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 5 min walk</span>
             </div>
             <div class="detail-text">Allow 2–3 hrs. Blue whale skeleton in the entrance hall alone is worth it. Dinosaur gallery, evolution exhibits. <strong>Pre-book free timed entry at nhm.ac.uk</strong> to avoid queues.</div>
             <a class="book-link" href="https://www.nhm.ac.uk" target="_blank">📎 nhm.ac.uk</a>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">3:00pm</div>
@@ -914,7 +915,7 @@
             <div class="detail-text">World's greatest design museum. Cast Courts have massive replicas of Michelangelo's David and Trajan's Column. Beautiful café inside with outdoor courtyard. Skip if NHM has worn you out.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">6:00pm</div>
@@ -933,7 +934,7 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- DAY 3: JUN 15 -->
       <div class="day-panel" id="day-3">
         <div class="day-hero">
@@ -946,17 +947,17 @@
             <span class="tag">£85pp · Full day</span>
           </div>
         </div>
-
+ 
         <div class="alert red">
           <div class="alert-title">⚠️ Must Pre-Book</div>
           wbstudiotour.co.uk — Marble Arch transport package £85pp (£170 total). Book for June 15 ASAP — sells out months ahead.
         </div>
-
+ 
         <div class="section-label">Day Plan</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
-            <div class="stop-time">9:00am</div>
+            <div class="stop-time">~10:00am</div>
             <div class="stop-info">
               <div class="stop-name">Coach from Marble Arch</div>
               <div class="stop-note">Transport included in package</div>
@@ -967,11 +968,11 @@
             <div class="transit-row">
               <span class="transit-pill pill-tube central"><span class="pill-icon">🚇</span> Fulham Broadway → Earl's Court → Marble Arch (Central)</span>
             </div>
-            <div class="detail-text">Allow 45 min to get to Marble Arch from Fulham. Coach takes ~45 min to studios in Watford. Check your booking confirmation for exact departure time.</div>
+            <div class="detail-text">You booked the <strong>11am slot</strong>. Leave Fulham ~9:45am to get to Marble Arch with time to spare. Coach takes ~45 min to studios in Watford.</div>
             <a class="book-link" href="https://www.wbstudiotour.co.uk" target="_blank">📎 wbstudiotour.co.uk</a>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">All day</div>
@@ -989,7 +990,7 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">~5:00pm</div>
@@ -1007,7 +1008,7 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- DAY 4: JUN 16 -->
       <div class="day-panel" id="day-4">
         <div class="day-hero">
@@ -1020,9 +1021,9 @@
             <span class="tag info">Covent Garden afternoon</span>
           </div>
         </div>
-
+ 
         <div class="section-label">Stops</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">10:00am</div>
@@ -1041,7 +1042,7 @@
             <a class="book-link" href="https://www.britishmuseum.org" target="_blank">📎 britishmuseum.org</a>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">1:30pm</div>
@@ -1058,7 +1059,7 @@
             <div class="detail-text">The piazza always has performers — opera singers, acrobats, comedians. Wander through the Apple Market inside. Find Neal's Yard (colourful hidden courtyard) and Seven Dials nearby. Grab lunch from one of the many spots around the market.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">3:30pm</div>
@@ -1075,7 +1076,7 @@
             <div class="detail-text">Trafalgar Square. Free entry. Van Gogh's Sunflowers, da Vinci's Virgin of the Rocks, Rembrandt self-portraits. Even 90 mins is enough to see the highlights. Open until 9pm Fridays.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">5:30pm</div>
@@ -1093,7 +1094,7 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- DAY 5: JUN 17 -->
       <div class="day-panel" id="day-5">
         <div class="day-hero">
@@ -1107,14 +1108,14 @@
             <span class="tag info">Doors 5pm · Show ~8:30pm</span>
           </div>
         </div>
-
+ 
         <div class="alert red">
           <div class="alert-title">🏟️ Big Night — Plan Carefully</div>
           England's World Cup opener vs Croatia is 9pm. Harry Styles doors at 5pm. Get to Wembley area by 5:30pm, find a pub, watch the game start while waiting for the show.
         </div>
-
+ 
         <div class="section-label">Morning / Afternoon</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">10:00am</div>
@@ -1131,7 +1132,7 @@
             <div class="detail-text">Quieter on weekdays than Saturday. Good for browsing vintage shops, grabbing coffee, exploring the colourful streets of Notting Hill. Low energy morning — save yourself for tonight.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">1:30pm</div>
@@ -1149,7 +1150,7 @@
             <div class="detail-text">Stunning Victorian covered market in the City. Used as Diagon Alley in the original Harry Potter films. Grab lunch at one of the pubs or restaurants inside. Look up at the painted ceiling.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">3:30pm</div>
@@ -1167,9 +1168,9 @@
             <a class="book-link" href="https://www.the-shard.com" target="_blank">📎 the-shard.com</a>
           </div>
         </div>
-
+ 
         <div class="section-label">Evening — Wembley</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">5:00pm</div>
@@ -1186,7 +1187,7 @@
             <div class="detail-text">~45 min journey. Wembley Park station drops you right outside the stadium. The area will already be buzzing. Find a pub near the stadium before going in.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">~6:00pm</div>
@@ -1200,7 +1201,7 @@
             <div class="detail-text"><strong>Bobby Moore pub</strong> (right outside Wembley) or any pub on Olympic Way. Every screen will have the game. England vs Croatia — World Cup Group L opener. Atmosphere will be electric. Get in before doors for Harry Styles at 5pm or watch first half in the pub then head in.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">Doors 5pm</div>
@@ -1214,13 +1215,13 @@
             <div class="detail-text">90,000 capacity. Get there early for good standing spots if you have floor tickets. Wembley is enormous — food and drink inside is expensive. Eat before you go in.</div>
           </div>
         </div>
-
+ 
         <div class="alert gold">
           <div class="alert-title">🚇 Post-Show Transit — Important</div>
           After the show Wembley Park station will be absolutely rammed. Wait 30–45 min at a nearby pub before heading to the station. Do NOT Uber — surge pricing will be brutal. Take the Tube: Wembley Park → King's Cross → Fulham Broadway.
         </div>
       </div>
-
+ 
       <!-- DAY 6: JUN 18 -->
       <div class="day-panel" id="day-6">
         <div class="day-hero">
@@ -1233,14 +1234,14 @@
             <span class="tag">Last full day in London</span>
           </div>
         </div>
-
+ 
         <div class="alert blue">
           <div class="alert-title">💡 Pick Your Neighbourhood</div>
           This is your flex day. Suggestions below — do one or mix and match based on how you feel after Wembley last night.
         </div>
-
+ 
         <div class="section-label">Option A — East London Vibe</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">10:00am</div>
@@ -1258,9 +1259,9 @@
             <div class="detail-text"><strong>Shoreditch:</strong> Walk Brick Lane, Spitalfields Market, Boxpark. Best street art in London. Independent coffee shops everywhere. Very different vibe from the rest of the trip — East London has its own character.<br><br><strong>Brick Lane:</strong> Vintage clothing, bagels (try Beigel Bake — 24hr, legendary), curry houses, Sunday market vibe even on weekdays.</div>
           </div>
         </div>
-
+ 
         <div class="section-label">Option B — Camden</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">10:00am</div>
@@ -1277,9 +1278,9 @@
             <div class="detail-text">Grungier than the rest of the trip. Good for alternative fashion, food stalls from everywhere, live music. Walk along the Regent's Canal. Good for a few hours.</div>
           </div>
         </div>
-
+ 
         <div class="section-label">Option C — Regent's Park & Primrose Hill</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">10:00am</div>
@@ -1296,9 +1297,9 @@
             <div class="detail-text">Queen Mary's Rose Garden inside Regent's Park has thousands of roses in full bloom in June. Walk north 10 minutes to <strong>Primrose Hill</strong> for the best panoramic skyline view in London. Completely free, totally worth it.</div>
           </div>
         </div>
-
+ 
         <div class="section-label">Shopping Options</div>
-
+ 
         <div class="info-card">
           <h3>Where to Shop</h3>
           <div class="info-row">
@@ -1318,9 +1319,9 @@
             <div class="info-val">Hidden colourful courtyard in Covent Garden — unique independent shops</div>
           </div>
         </div>
-
+ 
         <div class="section-label">Evening — Last Night in London</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">Evening</div>
@@ -1340,7 +1341,7 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- DAY 7: JUN 19 -->
       <div class="day-panel" id="day-7">
         <div class="day-hero">
@@ -1353,9 +1354,9 @@
             <span class="tag">Avanti West Coast</span>
           </div>
         </div>
-
+ 
         <div class="section-label">Journey</div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
             <div class="stop-time">Morning</div>
@@ -1366,16 +1367,16 @@
             <div class="stop-chevron">›</div>
           </div>
           <div class="stop-detail">
-            <div class="detail-text">Pack the night before. Leave bags by door. Standard checkout time — confirm with host. Grab coffee and breakfast near Fulham Broadway.</div>
+            <div class="detail-text">Pack the night before. Leave Airbnb by <strong>11:00am</strong> to get to Euston for the 12:30pm train. Grab coffee and breakfast near Fulham Broadway before heading out.</div>
           </div>
         </div>
-
+ 
         <div class="stop-card" onclick="toggleStop(this)">
           <div class="stop-main">
-            <div class="stop-time">TBC</div>
+            <div class="stop-time">12:30pm</div>
             <div class="stop-info">
               <div class="stop-name">London Euston → Penrith</div>
-              <div class="stop-note">Avanti West Coast · ~3 hrs</div>
+              <div class="stop-note">Avanti West Coast · arrives 15:30</div>
             </div>
             <div class="stop-chevron">›</div>
           </div>
@@ -1383,15 +1384,15 @@
             <div class="transit-row">
               <span class="transit-pill pill-tube"><span class="pill-icon">🚇</span> Fulham Broadway → Victoria (District) → Victoria line → Euston</span>
             </div>
-            <div class="detail-text">Book on Trainline or Avanti's website. Penrith is the closest station to the Lake District. Journey is about 3 hrs from Euston. Book in advance for cheaper fares — off-peak is significantly cheaper than peak morning trains.</div>
+            <div class="detail-text">Departs <strong>12:30pm, arrives Penrith 15:30</strong>. Leave Airbnb by 11am to get to Euston comfortably. Euston has good food options — grab lunch before boarding.</div>
             <a class="book-link" href="https://www.trainline.com" target="_blank">📎 trainline.com</a>
           </div>
         </div>
       </div>
-
+ 
     </div><!-- /content -->
   </div><!-- /view-days -->
-
+ 
   <!-- BOOKINGS VIEW -->
   <div class="section-view" id="view-bookings">
     <div class="content">
@@ -1401,9 +1402,9 @@
         <div id="booking-progress-label" class="progress-label">0 of 9 done</div>
         <div class="progress-bar"><div class="progress-fill" id="booking-progress" style="width:0%"></div></div>
       </div>
-
+ 
       <div class="section-label">🚨 Do These ASAP</div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b1">
         <div class="checkbox"></div>
         <div>
@@ -1411,7 +1412,7 @@
           <div class="check-sub">skygarden.london — Free but books 3+ weeks out</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b2">
         <div class="checkbox"></div>
         <div>
@@ -1419,7 +1420,7 @@
           <div class="check-sub">wbstudiotour.co.uk — Marble Arch package £85pp</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b3">
         <div class="checkbox"></div>
         <div>
@@ -1427,9 +1428,17 @@
           <div class="check-sub">evanevanstours.com — Stonehenge + Bath</div>
         </div>
       </div>
-
+ 
       <div class="section-label">Book Soon</div>
-
+ 
+      <div class="checklist-item" onclick="toggleCheck(this)" data-id="b13">
+        <div class="checkbox"></div>
+        <div>
+          <div class="check-label">London Eye</div>
+          <div class="check-sub">londoneye.com — ~£30pp, avoid walk-up queues</div>
+        </div>
+      </div>
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b4">
         <div class="checkbox"></div>
         <div>
@@ -1437,7 +1446,7 @@
           <div class="check-sub">hrp.org.uk — Cheaper + skip queue</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b5">
         <div class="checkbox"></div>
         <div>
@@ -1445,7 +1454,7 @@
           <div class="check-sub">the-shard.com — Book a few days ahead</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b6">
         <div class="checkbox"></div>
         <div>
@@ -1453,7 +1462,7 @@
           <div class="check-sub">westminster-abbey.org — ~£30pp</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b7">
         <div class="checkbox"></div>
         <div>
@@ -1461,9 +1470,9 @@
           <div class="check-sub">dishoom.com — Covent Garden location</div>
         </div>
       </div>
-
+ 
       <div class="section-label">Free — Just Pre-Register</div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b8">
         <div class="checkbox"></div>
         <div>
@@ -1471,7 +1480,7 @@
           <div class="check-sub">nhm.ac.uk — Free timed entry ticket</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b9">
         <div class="checkbox"></div>
         <div>
@@ -1479,9 +1488,9 @@
           <div class="check-sub">britishmuseum.org — Free timed entry ticket</div>
         </div>
       </div>
-
+ 
       <div class="section-label">Before You Leave Calgary</div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b10">
         <div class="checkbox"></div>
         <div>
@@ -1489,7 +1498,7 @@
           <div class="check-sub">Google Maps → Settings → Offline Maps</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b11">
         <div class="checkbox"></div>
         <div>
@@ -1497,7 +1506,7 @@
           <div class="check-sub">trainline.com — June 19, Avanti West Coast</div>
         </div>
       </div>
-
+ 
       <div class="checklist-item" onclick="toggleCheck(this)" data-id="b12">
         <div class="checkbox"></div>
         <div>
@@ -1505,10 +1514,10 @@
           <div class="check-sub">Create "London Trip" list, star each stop</div>
         </div>
       </div>
-
+ 
     </div>
   </div>
-
+ 
   <!-- FOOD VIEW -->
   <div class="section-view" id="view-food">
     <div class="content">
@@ -1516,70 +1525,70 @@
         <div class="day-num">Food & Drink</div>
         <div class="day-title">Worth Seeking Out</div>
       </div>
-
+ 
       <div class="section-label">Must-Dos</div>
-
+ 
       <div class="food-item">
         <div class="food-name">Borough Market</div>
         <div class="food-what">🥘 Food market — Saturday & weekdays</div>
         <div class="food-tip">Don't eat before. Mushroom risotto, chocolate strawberries, Turkish coffee. Saturdays are best.</div>
       </div>
-
+ 
       <div class="food-item">
         <div class="food-name">Dishoom</div>
         <div class="food-what">🍛 Best Indian restaurant in London</div>
         <div class="food-tip">Book ahead — always packed. Covent Garden location. Black dal and bacon naan are famous.</div>
       </div>
-
+ 
       <div class="food-item">
         <div class="food-name">Padella</div>
         <div class="food-what">🍝 Fresh pasta — Borough Market area</div>
         <div class="food-tip">Cash only, no reservations. Line moves fast. Cacio e pepe is exceptional.</div>
       </div>
-
+ 
       <div class="section-label">Pubs</div>
-
+ 
       <div class="food-item">
         <div class="food-name">The Harp</div>
         <div class="food-what">🍺 Best real ale pub — Covent Garden</div>
         <div class="food-tip">47 Chandos Place. Small, atmospheric, unchanged for decades. Best cask ales in central London.</div>
       </div>
-
+ 
       <div class="food-item">
         <div class="food-name">The Devonshire</div>
         <div class="food-what">🥩 Trendy gastro pub — Soho</div>
         <div class="food-tip">17 Denman St. Excellent steak and sticky toffee pudding. Book or arrive early.</div>
       </div>
-
+ 
       <div class="food-item">
         <div class="food-name">Old Shades</div>
         <div class="food-what">🏛️ Historic pub — Whitehall</div>
         <div class="food-tip">37 Whitehall. Great shepherd's pie. Right by Trafalgar Square. Classic London pub.</div>
       </div>
-
+ 
       <div class="section-label">Cheap & Good</div>
-
+ 
       <div class="food-item">
         <div class="food-name">Flat Iron</div>
         <div class="food-what">🥩 No-reservation steak — multiple locations</div>
         <div class="food-tip">Just show up. Cheap for London. Great value cut steak with popcorn and sorbet included.</div>
       </div>
-
+ 
       <div class="food-item">
         <div class="food-name">Bao</div>
         <div class="food-what">🥟 Taiwanese bao buns — Soho</div>
         <div class="food-tip">Small, casual, queue outside but moves fast. Classic pork bao is the move.</div>
       </div>
-
+ 
       <div class="food-item">
         <div class="food-name">Beigel Bake (Brick Lane)</div>
         <div class="food-what">🥯 24hr legendary bagel shop</div>
         <div class="food-tip">If you go to Shoreditch on Day 6. Salt beef bagel for £2. Open all night, been there forever.</div>
       </div>
-
+ 
     </div>
   </div>
-
+ 
   <!-- INFO VIEW -->
   <div class="section-view" id="view-info">
     <div class="content">
@@ -1587,7 +1596,7 @@
         <div class="day-num">Trip Info</div>
         <div class="day-title">Quick Reference</div>
       </div>
-
+ 
       <div class="info-card">
         <h3>🏠 Where You're Staying</h3>
         <div class="info-row">
@@ -1607,7 +1616,7 @@
           <div class="info-val">Fulham Broadway (District line, 2 min walk)</div>
         </div>
       </div>
-
+ 
       <div class="info-card">
         <h3>🚇 Transit from Fulham Broadway</h3>
         <div class="info-row">
@@ -1639,7 +1648,7 @@
           <div class="info-val">District → Victoria → Victoria line → Euston</div>
         </div>
       </div>
-
+ 
       <div class="info-card">
         <h3>💳 Transit Tips</h3>
         <div class="info-row">
@@ -1663,7 +1672,7 @@
           <div class="info-val">Same fare cap, more scenic — great for short hops above ground</div>
         </div>
       </div>
-
+ 
       <div class="info-card">
         <h3>📞 Key Numbers</h3>
         <div class="info-row">
@@ -1679,7 +1688,7 @@
           <div class="info-val">111</div>
         </div>
       </div>
-
+ 
       <div class="info-card">
         <h3>⚽ World Cup — England Fixtures</h3>
         <div class="info-row">
@@ -1695,12 +1704,12 @@
           <div class="info-val">England vs Panama · 10pm BST · New Jersey</div>
         </div>
       </div>
-
+ 
     </div>
   </div>
-
+ 
 </div><!-- /main-content -->
-
+ 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <button class="nav-btn active" onclick="showSection('days', this)">
@@ -1720,11 +1729,11 @@
     Info
   </button>
 </div>
-
+ 
 <script>
   let currentDay = 0;
   const TOTAL_BOOKINGS = 12;
-
+ 
   function showDay(n) {
     document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1734,7 +1743,7 @@
     // scroll tab into view
     document.querySelectorAll('.tab')[n].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
-
+ 
   function showSection(name, btn) {
     document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1743,11 +1752,11 @@
     // show/hide tabs
     document.querySelector('.tabs-wrapper').style.display = name === 'days' ? '' : 'none';
   }
-
+ 
   function toggleStop(card) {
     card.classList.toggle('expanded');
   }
-
+ 
   function toggleCheck(item) {
     item.classList.toggle('checked');
     const checkbox = item.querySelector('.checkbox');
@@ -1755,7 +1764,7 @@
     updateProgress();
     saveChecks();
   }
-
+ 
   function updateProgress() {
     const total = document.querySelectorAll('.checklist-item').length;
     const done = document.querySelectorAll('.checklist-item.checked').length;
@@ -1763,7 +1772,7 @@
     document.getElementById('booking-progress').style.width = pct + '%';
     document.getElementById('booking-progress-label').textContent = done + ' of ' + total + ' done';
   }
-
+ 
   function saveChecks() {
     const state = {};
     document.querySelectorAll('.checklist-item').forEach(item => {
@@ -1771,7 +1780,7 @@
     });
     try { localStorage.setItem('london_checks', JSON.stringify(state)); } catch(e) {}
   }
-
+ 
   function loadChecks() {
     try {
       const state = JSON.parse(localStorage.getItem('london_checks') || '{}');
@@ -1784,7 +1793,7 @@
       updateProgress();
     } catch(e) {}
   }
-
+ 
   loadChecks();
 </script>
 </body>
