@@ -3,27 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>London 2026 — Connor & Gabby</title>
+<title>Europe 2026 — Connor & Gabby</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
  
   :root {
-    --bg: #0f0f13;
-    --surface: #18181f;
-    --surface2: #22222c;
-    --border: #2e2e3a;
-    --accent: #c8a96e;
-    --accent2: #7eb8d4;
+    --bg: #080e1a;
+    --surface: #0e1628;
+    --surface2: #162035;
+    --border: #1e2a40;
+    --accent: #e87060;
+    --accent2: #7da8e8;
     --red: #e05252;
     --green: #5ec48a;
-    --text: #e8e8ee;
-    --muted: #7a7a8c;
+    --text: #e8eef8;
+    --muted: #6a7a9c;
     --tube-district: #007d32;
     --tube-central: #e32017;
     --tube-piccadilly: #003688;
     --tube-circle: #ffd329;
     --tube-northern: #000000;
     --tube-elizabeth: #6950a1;
+    /* Theme colours */
+    --theme-accent: #c8382a;
+    --theme-accent2: #1a3a6b;
+    --theme-glow: rgba(200,56,42,0.12);
+    --theme-glow2: rgba(26,58,107,0.15);
+    --theme-tag: rgba(200,56,42,0.15);
+    --theme-tag-color: #e87060;
+    --theme-hero-grad: linear-gradient(135deg, rgba(200,56,42,0.08), rgba(26,58,107,0.1));
+  }
+ 
+  /* LONDON THEME — deep navy blue */
+  body.london {
+    --theme-accent: #c8382a;
+    --theme-accent2: #1a3a6b;
+    --theme-glow: rgba(200,56,42,0.15);
+    --theme-glow2: rgba(26,58,107,0.2);
+    --theme-tag: rgba(200,56,42,0.15);
+    --theme-tag-color: #e87060;
+    --theme-hero-grad: linear-gradient(135deg, rgba(200,56,42,0.1), rgba(26,58,107,0.15));
+    --accent: #e87060;
+    --accent2: #7da8e8;
+    --border: #1e2a40;
+    --surface: #0e1628;
+    --surface2: #162035;
+    --bg: #080e1a;
+    --text: #e8eef8;
+    --muted: #6a7a9c;
+  }
+ 
+  /* LISBON THEME — warm terracotta & amber */
+  body.lisbon {
+    --theme-accent: #c45c2a;
+    --theme-accent2: #8b6914;
+    --theme-glow: rgba(196,92,42,0.18);
+    --theme-glow2: rgba(139,105,20,0.15);
+    --theme-tag: rgba(196,92,42,0.18);
+    --theme-tag-color: #e8956a;
+    --theme-hero-grad: linear-gradient(135deg, rgba(196,92,42,0.12), rgba(139,105,20,0.12));
+    --accent: #e8956a;
+    --accent2: #d4a843;
+    --border: #3d2a18;
+    --surface: #1e1208;
+    --surface2: #2a1a0c;
+    --bg: #120b04;
+    --text: #f0e8dc;
+    --muted: #8a7060;
   }
  
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -143,7 +189,7 @@
     position: absolute;
     top: 0; right: 0;
     width: 120px; height: 120px;
-    background: radial-gradient(circle, rgba(200,169,110,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--theme-glow) 0%, transparent 70%);
     pointer-events: none;
   }
  
@@ -558,8 +604,8 @@
  
   /* HOTEL/AIRBNB CARD */
   .stay-card {
-    background: linear-gradient(135deg, rgba(200,169,110,0.1), rgba(126,184,212,0.08));
-    border: 1px solid rgba(200,169,110,0.25);
+    background: var(--theme-hero-grad);
+    border: 1px solid var(--theme-glow);
     border-radius: 14px;
     padding: 16px;
     margin-bottom: 16px;
@@ -568,28 +614,112 @@
   .stay-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 6px; }
   .stay-name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
   .stay-addr { font-size: 12px; color: var(--muted); }
+ 
+  /* CITY SWITCHER */
+  .city-switcher {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+ 
+  .city-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+ 
+  .city-btn.active {
+    background: var(--theme-glow);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+ 
+  .city-btn.london-btn.active {
+    background: rgba(200,56,42,0.12);
+    border-color: #e87060;
+    color: #e87060;
+  }
+ 
+  .city-btn.lisbon-btn.active {
+    background: rgba(196,92,42,0.14);
+    border-color: #e8956a;
+    color: #e8956a;
+  }
+ 
+  .city-content { display: none; }
+  .city-content.active { display: block; }
+ 
+  /* Portugal specific colors */
+  .pill-metro {
+    background: rgba(0, 160, 100, 0.15);
+    color: #4dba7f;
+    border-color: rgba(0, 160, 100, 0.3);
+  }
+ 
+  .pill-train {
+    background: rgba(200, 169, 110, 0.12);
+    color: var(--accent);
+    border-color: rgba(200, 169, 110, 0.3);
+  }
+ 
+  .pill-ferry {
+    background: rgba(126, 184, 212, 0.12);
+    color: var(--accent2);
+    border-color: rgba(126, 184, 212, 0.3);
+  }
+ 
+  .pill-tram {
+    background: rgba(224, 82, 82, 0.12);
+    color: #f09090;
+    border-color: rgba(224, 82, 82, 0.3);
+  }
 </style>
 </head>
-<body>
+<body class="london">
  
 <div class="header">
   <div class="header-top">
     <div>
-      <div class="header-title">🇬🇧 London 2026</div>
-      <div class="header-sub">Connor & Gabby · June 12–19</div>
+      <div class="header-title" id="header-title">🇬🇧 London 2026</div>
+      <div class="header-sub" id="header-sub">Connor & Gabby · June 12–19</div>
     </div>
     <div class="flag">✈️</div>
   </div>
+  <div class="city-switcher">
+    <button class="city-btn london-btn active" id="city-london" onclick="switchCity('london', this)">🇬🇧 London</button>
+    <button class="city-btn lisbon-btn" id="city-lisbon" onclick="switchCity('lisbon', this)">🇵🇹 Lisbon</button>
+  </div>
   <div class="tabs-wrapper">
-    <div class="tabs" id="dayTabs">
-      <button class="tab active" onclick="showDay(0)">Jun 12</button>
-      <button class="tab" onclick="showDay(1)">Jun 13</button>
-      <button class="tab" onclick="showDay(2)">Jun 14</button>
-      <button class="tab" onclick="showDay(3)">Jun 15</button>
-      <button class="tab" onclick="showDay(4)">Jun 16</button>
-      <button class="tab" onclick="showDay(5)">Jun 17</button>
-      <button class="tab" onclick="showDay(6)">Jun 18</button>
-      <button class="tab" onclick="showDay(7)">Jun 19</button>
+    <div class="tabs" id="london-tabs">
+      <button class="tab active" onclick="showDay(0, 'london')">Jun 12</button>
+      <button class="tab" onclick="showDay(1, 'london')">Jun 13</button>
+      <button class="tab" onclick="showDay(2, 'london')">Jun 14</button>
+      <button class="tab" onclick="showDay(3, 'london')">Jun 15</button>
+      <button class="tab" onclick="showDay(4, 'london')">Jun 16</button>
+      <button class="tab" onclick="showDay(5, 'london')">Jun 17</button>
+      <button class="tab" onclick="showDay(6, 'london')">Jun 18</button>
+      <button class="tab" onclick="showDay(7, 'london')">Jun 19</button>
+    </div>
+    <div class="tabs" id="lisbon-tabs" style="display:none">
+      <button class="tab active" onclick="showDay(0, 'lisbon')">Jun 21</button>
+      <button class="tab" onclick="showDay(1, 'lisbon')">Jun 22</button>
+      <button class="tab" onclick="showDay(2, 'lisbon')">Jun 23</button>
+      <button class="tab" onclick="showDay(3, 'lisbon')">Jun 24</button>
+      <button class="tab" onclick="showDay(4, 'lisbon')">Jun 25</button>
+      <button class="tab" onclick="showDay(5, 'lisbon')">Jun 26</button>
+      <button class="tab" onclick="showDay(6, 'lisbon')">Jun 27</button>
     </div>
   </div>
 </div>
@@ -599,6 +729,8 @@
   <!-- DAYS VIEW -->
   <div class="section-view active" id="view-days">
     <div class="content">
+      <!-- LONDON DAYS -->
+      <div class="city-content active" id="london-days">
  
       <!-- DAY 0: JUN 12 -->
       <div class="day-panel active" id="day-0">
@@ -1390,6 +1522,573 @@
         </div>
       </div>
  
+      </div><!-- /london-days -->
+ 
+      <!-- LISBON DAYS -->
+      <div class="city-content" id="lisbon-days">
+ 
+        <!-- LISBON DAY 0: JUN 21 -->
+        <div class="day-panel active" id="lisbon-day-0">
+          <div class="day-hero">
+            <div class="day-emoji">🛬</div>
+            <div class="day-num">Arrival Day</div>
+            <div class="day-title">Arrive in Lisbon</div>
+            <div class="day-date">Sunday, June 21</div>
+            <div class="day-tags">
+              <span class="tag info">Manchester → Lisbon 18:00</span>
+              <span class="tag">Bica Airbnb</span>
+            </div>
+          </div>
+          <div class="stay-card">
+            <div class="stay-label">Your Stay</div>
+            <div class="stay-name">Airbnb — Bica, Lisbon</div>
+            <div class="stay-addr">Bica neighbourhood · June 21–27</div>
+          </div>
+          <div class="alert blue">
+            <div class="alert-title">✈️ Flight</div>
+            Manchester Airport departs 18:00 · Arrives Lisbon 21:00. Get to Airbnb, drop bags, find a late dinner nearby. Easy night — big days ahead.
+          </div>
+          <div class="section-label">Evening</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">~10pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Late Dinner near Bica</div>
+                <div class="stop-note">Easy first night — explore the neighbourhood</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Bica is in the heart of historic Lisbon near Chiado. Plenty of restaurants open late. Try a <strong>bifana</strong> (Portuguese pork sandwich) or petiscos (tapas) at any local tasca. Grab a ginjinha (cherry liqueur) at a street kiosk — iconic Lisbon experience.</div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- LISBON DAY 1: JUN 22 -->
+        <div class="day-panel" id="lisbon-day-1">
+          <div class="day-hero">
+            <div class="day-emoji">🏰</div>
+            <div class="day-num">Day 1</div>
+            <div class="day-title">Alfama & Historic Lisbon</div>
+            <div class="day-date">Monday, June 22</div>
+            <div class="day-tags">
+              <span class="tag info">Tram 28 route</span>
+              <span class="tag good">Fado dinner</span>
+            </div>
+          </div>
+          <div class="section-label">Stops</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">10:00am</div>
+              <div class="stop-info">
+                <div class="stop-name">Lisbon Cathedral (Sé de Lisboa)</div>
+                <div class="stop-note">Oldest church in Lisbon · Built 1147 · Free entry</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-tram"><span class="pill-icon">🚃</span> Tram 28 — stops right outside</span>
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 15 min walk from Bica</span>
+              </div>
+              <div class="detail-text">Lisbon's oldest church, built in 1147 on the site of a mosque. Stunning Romanesque facade. Free to enter the main nave. A must-see starting point for exploring Alfama.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">11:00am</div>
+              <div class="stop-info">
+                <div class="stop-name">Tram 28</div>
+                <div class="stop-note">Iconic yellow tram through historic streets</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-tram"><span class="pill-icon">🚃</span> Hop on near the Cathedral</span>
+              </div>
+              <div class="detail-text">Lisbon's most famous tram winds through Alfama's impossibly narrow streets. Buy a single ticket on board (~€3) or use the Viva Viagem card. Can get very crowded — go early or be prepared to wait. Ride it up through Alfama toward Graça.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">11:30am</div>
+              <div class="stop-info">
+                <div class="stop-name">São Jorge Castle</div>
+                <div class="stop-note">~€15pp · Moorish hilltop castle · Best views in Alfama</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-tram"><span class="pill-icon">🚃</span> Tram 28 to top of Alfama</span>
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 5 min walk up</span>
+              </div>
+              <div class="detail-text">Hilltop Moorish castle with sweeping 360° views over Lisbon and the Tagus river. Allow 1.5 hrs. Pre-book at castelodesaojorge.pt to skip queues. Peacocks wander the grounds.</div>
+              <a class="book-link" href="https://castelodesaojorge.pt" target="_blank">📎 castelodesaojorge.pt</a>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">1:30pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Alfama Wander & Lunch</div>
+                <div class="stop-note">Cobblestone streets, local tascas, street art</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Get lost in the narrow streets of Alfama. Oldest neighbourhood in Lisbon, Moorish roots. Find a local tasca for lunch — grilled chicken, bifanas, or sardines for Gabby. Cheap and delicious.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">5:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Miradouro da Graça</div>
+                <div class="stop-note">Best sunset viewpoint in Lisbon · Local favourite</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 10 min walk from Alfama</span>
+              </div>
+              <div class="detail-text">The best miradouro (viewpoint) in Lisbon — less touristy than others, locals come here with drinks to watch the sunset. Views over the city rooftops, the Tagus, and the 25 de Abril bridge. Arrive before sunset for the best spot.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">8:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Fado Dinner</div>
+                <div class="stop-note">Traditional Portuguese music — Alfama is the home of Fado</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text"><strong>Tasca do Chico</strong> or <strong>A Baiuca</strong> are legendary small Fado houses in Alfama. Book ahead — they fill up fast. Fado is mournful, soulful Portuguese music performed live while you eat. Completely unique experience. Budget €35–50pp including food and wine.</div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- LISBON DAY 2: JUN 23 -->
+        <div class="day-panel" id="lisbon-day-2">
+          <div class="day-hero">
+            <div class="day-emoji">🏰</div>
+            <div class="day-num">Day 2</div>
+            <div class="day-title">Sintra Day Trip + Portugal 🇵🇹</div>
+            <div class="day-date">Tuesday, June 23</div>
+            <div class="day-tags">
+              <span class="tag urgent">🇵🇹 Portugal vs Uzbekistan 6pm</span>
+              <span class="tag good">Palaces + Beach</span>
+            </div>
+          </div>
+          <div class="alert gold">
+            <div class="alert-title">⚽ Portugal vs Uzbekistan — 6:00pm local time</div>
+            Be back in Lisbon by 5:30pm. Find a bar in Bairro Alto or Alfama and watch with the locals. The atmosphere will be electric.
+          </div>
+          <div class="section-label">Day Trip</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">9:00am</div>
+              <div class="stop-info">
+                <div class="stop-name">Train to Sintra</div>
+                <div class="stop-note">~40 min from Rossio station</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-metro"><span class="pill-icon">🚇</span> Metro to Rossio station</span>
+                <span class="transit-pill pill-train"><span class="pill-icon">🚂</span> Sintra line — runs every 20 min</span>
+              </div>
+              <div class="detail-text">Trains run regularly from Rossio station in central Lisbon. ~40 min journey, very cheap (~€2.50 each way). Buy return tickets. Arrive early — Sintra gets very crowded by midday.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">10:00am</div>
+              <div class="stop-info">
+                <div class="stop-name">Pena Palace</div>
+                <div class="stop-note">~€20pp · Most iconic palace · Colourful hilltop fairytale</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> Bus 434 from Sintra station or 45 min hike up</span>
+              </div>
+              <div class="detail-text">The most photographed palace in Portugal. Bright yellow and red Romanticist palace perched on a hilltop. Pre-book at parquesdesintra.pt — queues are long without a booking. Allow 2 hrs. Views over the whole region on a clear day.</div>
+              <a class="book-link" href="https://www.parquesdesintra.pt" target="_blank">📎 parquesdesintra.pt</a>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">12:30pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Sintra Town & Lunch</div>
+                <div class="stop-note">Travesseiros pastry · Vila velha wander</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Head back down to Sintra town for lunch. Try a <strong>travesseiro</strong> — almond and egg pastry, Sintra's famous local speciality from Piriquita bakery. Wander the old town streets before heading to the beach.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">2:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Praia Grande or Praia da Ursa</div>
+                <div class="stop-note">Dramatic Atlantic beaches near Sintra</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚕</span> Taxi or Uber from Sintra ~15 min</span>
+              </div>
+              <div class="detail-text"><strong>Praia Grande</strong> — bigger, easier to access, facilities available. Good for a swim.<br><br><strong>Praia da Ursa</strong> — wild, dramatic, secluded. 20 min hike down cliff path to reach it. One of the most beautiful beaches in Portugal but no facilities. Worth it if you're up for the hike.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">4:30pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Head back to Lisbon</div>
+                <div class="stop-note">Be back by 5:30pm for the game</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚕</span> Taxi back to Sintra station</span>
+                <span class="transit-pill pill-train"><span class="pill-icon">🚂</span> Train back to Rossio ~40 min</span>
+              </div>
+              <div class="detail-text">Leave beach by 4:30pm to get back comfortably. Head straight to Bairro Alto or Alfama to find a bar for the game.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">6:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">🇵🇹 Portugal vs Uzbekistan</div>
+                <div class="stop-note">Watch with locals in Bairro Alto or Alfama</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Find any bar in Bairro Alto — the whole street comes alive for Portugal games. Expect people spilling out onto the street, flags everywhere, horns after goals. One of the best experiences of the whole trip. <strong>Get there 30 min early for a seat.</strong></div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- LISBON DAY 3: JUN 24 -->
+        <div class="day-panel" id="lisbon-day-3">
+          <div class="day-hero">
+            <div class="day-emoji">⛪</div>
+            <div class="day-num">Day 3</div>
+            <div class="day-title">Belém & Monuments</div>
+            <div class="day-date">Wednesday, June 24</div>
+            <div class="day-tags">
+              <span class="tag good">Pastéis de Belém</span>
+              <span class="tag info">UNESCO Monastery</span>
+            </div>
+          </div>
+          <div class="section-label">Stops</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">9:30am</div>
+              <div class="stop-info">
+                <div class="stop-name">Pastéis de Belém</div>
+                <div class="stop-note">Original pastel de nata bakery · Open since 1837</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-tram"><span class="pill-icon">🚃</span> Tram 15E from Praça da Figueira to Belém</span>
+              </div>
+              <div class="detail-text">Rua de Belém 84–92. The original and best pastel de nata. Been making them since 1837 with a secret recipe. Order them warm, sprinkle with cinnamon and powdered sugar. Queue moves fast. Go first thing before it gets too busy.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">10:30am</div>
+              <div class="stop-info">
+                <div class="stop-name">Jerónimos Monastery</div>
+                <div class="stop-note">~€12pp · UNESCO · Most beautiful building in Portugal</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 2 min walk from Pastéis de Belém</span>
+              </div>
+              <div class="detail-text">16th century Manueline monastery — the most ornate and beautiful building in Portugal. UNESCO World Heritage Site. Vasco da Gama is buried here. The cloisters are jaw-dropping. Pre-book at mosteirojeronimos.pt. Allow 1.5 hrs.</div>
+              <a class="book-link" href="https://www.mosteirojeronimos.gov.pt" target="_blank">📎 mosteirojeronimos.gov.pt</a>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">12:30pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Tower of Belém</div>
+                <div class="stop-note">~€12pp · Iconic riverside tower · Symbol of Lisbon</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 15 min walk along the river from Monastery</span>
+              </div>
+              <div class="detail-text">16th century fortified tower on the banks of the Tagus. One of the most photographed spots in Portugal. Pre-book at torrebelem.gov.pt — queues can be long. Climb to the top for river views. Allow 45 min.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">2:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Igreja de São Vicente de Fora</div>
+                <div class="stop-note">Beautiful azulejo tile panels · Rooftop views</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-tram"><span class="pill-icon">🚃</span> Tram back toward Alfama</span>
+              </div>
+              <div class="detail-text">Monastery church in Alfama with extraordinary blue and white azulejo tile panels depicting scenes from Aesop's fables. Small entry fee. Climb to the rooftop for panoramic views over Alfama and the river.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">4:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">LX Factory</div>
+                <div class="stop-note">Cool converted industrial space · Shops, food, bars</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-tram"><span class="pill-icon">🚃</span> Tram 15E back toward central Lisbon</span>
+              </div>
+              <div class="detail-text">Former industrial complex converted into a creative hub. Independent bookshops, vintage clothing, restaurants, rooftop bar. Very cool atmosphere. Sunday has a big market but worth visiting any day. Great spot for late afternoon drinks.</div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- LISBON DAY 4: JUN 25 -->
+        <div class="day-panel" id="lisbon-day-4">
+          <div class="day-hero">
+            <div class="day-emoji">🏖️</div>
+            <div class="day-num">Day 4</div>
+            <div class="day-title">Cascais Beach Day</div>
+            <div class="day-date">Thursday, June 25</div>
+            <div class="day-tags">
+              <span class="tag good">Coastal train ride</span>
+              <span class="tag info">~40 min from Lisbon</span>
+            </div>
+          </div>
+          <div class="section-label">Day Trip</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">10:00am</div>
+              <div class="stop-info">
+                <div class="stop-name">Train to Cascais</div>
+                <div class="stop-note">Scenic coastal line from Cais do Sodré</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-metro"><span class="pill-icon">🚇</span> Metro to Cais do Sodré</span>
+                <span class="transit-pill pill-train"><span class="pill-icon">🚂</span> Cascais line ~40 min</span>
+              </div>
+              <div class="detail-text">One of the most scenic train rides in Portugal — hugs the coast the whole way. Very cheap (~€2.50 each way). Stops at Estoril on the way — you can hop off there too if you want a quieter beach.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">11:00am</div>
+              <div class="stop-info">
+                <div class="stop-name">Cascais Town & Beach</div>
+                <div class="stop-note">Charming seaside town · Marina · Multiple beaches</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text"><strong>Praia da Rainha</strong> and <strong>Praia da Ribeira</strong> are right in town — calm, family-friendly. <strong>Praia do Guincho</strong> is 10km out of town, wilder and more dramatic but needs a taxi.<br><br>Cascais town itself is lovely — cobblestone streets, fishing harbour, good restaurants. Gabby will want seafood here.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">1:00pm</div>
+              <div class="stop-info">
+                <div class="stop-name">Lunch in Cascais</div>
+                <div class="stop-note">Seafood for Gabby · Piri piri chicken for you</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Loads of good restaurants around the marina and old town. Fresh grilled fish and seafood for Gabby. For you — most restaurants do grilled chicken or meat. <strong>O Pescador</strong> is a classic seafood spot. Eat outside if the weather is good.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Afternoon</div>
+              <div class="stop-info">
+                <div class="stop-name">Beach & Wander</div>
+                <div class="stop-note">Swim, relax, explore the town</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Spend the afternoon on the beach. The Atlantic is cold but refreshing in June. Walk along the coastal path between beaches. Head back to Lisbon whenever you feel like it — trains run constantly.</div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- LISBON DAY 5: JUN 26 -->
+        <div class="day-panel" id="lisbon-day-5">
+          <div class="day-hero">
+            <div class="day-emoji">🛍️</div>
+            <div class="day-num">Day 5</div>
+            <div class="day-title">Flex Day — Cristo Rei, Chiado & Farewell</div>
+            <div class="day-date">Friday, June 26</div>
+            <div class="day-tags">
+              <span class="tag info">Ferry to Cristo Rei</span>
+              <span class="tag good">Farewell dinner</span>
+            </div>
+          </div>
+          <div class="alert blue">
+            <div class="alert-title">💡 Loose Day</div>
+            Pick what feels right. Suggestions below — do all of it or just some. Last full day so make it count but keep it relaxed.
+          </div>
+          <div class="section-label">Options</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Morning</div>
+              <div class="stop-info">
+                <div class="stop-name">Cristo Rei — Big Jesus Statue</div>
+                <div class="stop-note">Ferry across the river · Views back over Lisbon</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-ferry"><span class="pill-icon">⛴️</span> Ferry from Cais do Sodré → Cacilhas ~10 min</span>
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚕</span> Bus or taxi to statue from Cacilhas</span>
+              </div>
+              <div class="detail-text">Ferry from Cais do Sodré to Cacilhas is a Lisbon institution — locals use it daily, beautiful views of the city from the water. From Cacilhas take a bus or taxi up to Cristo Rei (~€6pp entry). The views back over Lisbon from the top are incredible. Allow 2-3 hrs total.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Morning</div>
+              <div class="stop-info">
+                <div class="stop-name">Oceanarium</div>
+                <div class="stop-note">~€21pp · One of the best aquariums in Europe</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-metro"><span class="pill-icon">🚇</span> Metro Red line → Oriente station</span>
+                <span class="transit-pill pill-walk"><span class="pill-icon">🚶</span> 5 min walk in Parque das Nações</span>
+              </div>
+              <div class="detail-text">One of Europe's best aquariums in the modern Parque das Nações neighbourhood. Central ocean tank is enormous — sharks, rays, sunfish. Allow 2 hrs. The neighbourhood itself is interesting — very different modern Lisbon vibe. Book at oceanario.pt.</div>
+              <a class="book-link" href="https://www.oceanario.pt" target="_blank">📎 oceanario.pt</a>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Afternoon</div>
+              <div class="stop-info">
+                <div class="stop-name">Bairro Alto & Chiado</div>
+                <div class="stop-note">Best neighbourhoods for shopping & wandering</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text"><strong>Chiado</strong> — upscale shopping, bookshops, cafes. Very elegant neighbourhood. <strong>Fnac</strong> and independent boutiques.<br><br><strong>Bairro Alto</strong> — bohemian, independent shops by day, best bar street in Lisbon by night. Narrow streets packed with people from 10pm onwards.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Sunset</div>
+              <div class="stop-info">
+                <div class="stop-name">Rooftop Bars</div>
+                <div class="stop-note">Best sunset views in the city</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text"><strong>Park Bar</strong> — rooftop on top of a car park in Bairro Alto, legendary, incredible views, always packed. Go early.<br><br><strong>TOPO Chiado</strong> — rooftop bar with 360° views over the city and the river. More upscale.<br><br>Both are iconic Lisbon sunset spots.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Evening</div>
+              <div class="stop-info">
+                <div class="stop-name">Farewell Dinner</div>
+                <div class="stop-note">Make it a good one</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text"><strong>Taberna da Rua das Flores</strong> — petiscos (Portuguese tapas), tiny and intimate, book ahead.<br><br><strong>O Velho Eurico</strong> — classic Alfama tasca, incredible grilled chicken and sardines, cash only.<br><br><strong>Time Out Market</strong> — Lisbon's famous food hall if you can't decide, great variety, lively atmosphere. Connor gets bifanas, Gabby gets whatever she wants.</div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- LISBON DAY 6: JUN 27 -->
+        <div class="day-panel" id="lisbon-day-6">
+          <div class="day-hero">
+            <div class="day-emoji">🏠</div>
+            <div class="day-num">Departure Day</div>
+            <div class="day-title">Fly Home</div>
+            <div class="day-date">Saturday, June 27</div>
+            <div class="day-tags">
+              <span class="tag info">Lisbon Airport</span>
+            </div>
+          </div>
+          <div class="section-label">Journey</div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">Morning</div>
+              <div class="stop-info">
+                <div class="stop-name">Check out of Airbnb</div>
+                <div class="stop-note">Bica, Lisbon</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="detail-text">Pack the night before. Grab a last pastel de nata and coffee near Bica before heading to the airport.</div>
+            </div>
+          </div>
+          <div class="stop-card" onclick="toggleStop(this)">
+            <div class="stop-main">
+              <div class="stop-time">TBC</div>
+              <div class="stop-info">
+                <div class="stop-name">Lisbon Airport (LIS)</div>
+                <div class="stop-note">Metro Red line direct to airport</div>
+              </div>
+              <div class="stop-chevron">›</div>
+            </div>
+            <div class="stop-detail">
+              <div class="transit-row">
+                <span class="transit-pill pill-metro"><span class="pill-icon">🚇</span> Metro Red line → Aeroporto station · ~30 min from centre</span>
+              </div>
+              <div class="detail-text">Lisbon Airport is very easy to get to by Metro — Red line straight to Aeroporto station. Allow 45 min from Bica including walking to metro. Airport is modern and manageable.</div>
+            </div>
+          </div>
+        </div>
+ 
+      </div><!-- /lisbon-days -->
+ 
     </div><!-- /content -->
   </div><!-- /view-days -->
  
@@ -1580,6 +2279,67 @@
         <div class="food-tip">Small, casual, queue outside but moves fast. Classic pork bao is the move.</div>
       </div>
  
+ 
+      <div class="divider"></div>
+      <div class="day-hero" style="margin-top:0; margin-bottom:16px">
+        <div class="day-num">Lisbon Food & Drink</div>
+        <div class="day-title">Worth Seeking Out</div>
+      </div>
+ 
+      <div class="section-label">Must Try</div>
+ 
+      <div class="food-item">
+        <div class="food-name">Pastéis de Belém</div>
+        <div class="food-what">🥐 Original pastel de nata · Rua de Belém</div>
+        <div class="food-tip">Warm, with cinnamon and powdered sugar. Been open since 1837. Queue moves fast. Non-negotiable.</div>
+      </div>
+ 
+      <div class="food-item">
+        <div class="food-name">Bifana</div>
+        <div class="food-what">🥩 Portuguese pork sandwich · Everywhere</div>
+        <div class="food-tip">Connor's go-to. Thin pork slices in a crusty roll with mustard. Cheap, delicious, found at any snack bar.</div>
+      </div>
+ 
+      <div class="food-item">
+        <div class="food-name">Ginjinha</div>
+        <div class="food-what">🍒 Cherry liqueur · Street kiosks</div>
+        <div class="food-tip">Buy from a street kiosk near Rossio square. Shot glass, sometimes served with a cherry inside the chocolate cup. €1.50. Do it.</div>
+      </div>
+ 
+      <div class="section-label">Restaurants</div>
+ 
+      <div class="food-item">
+        <div class="food-name">Tasca do Chico</div>
+        <div class="food-what">🎵 Fado house — Alfama</div>
+        <div class="food-tip">Legendary tiny Fado venue. Book well ahead. Live music while you eat. Unmissable experience.</div>
+      </div>
+ 
+      <div class="food-item">
+        <div class="food-name">Time Out Market</div>
+        <div class="food-what">🏪 Food hall — Cais do Sodré</div>
+        <div class="food-tip">Best food hall in Europe. Every top Lisbon chef has a stall. Connor gets bifanas, Gabby gets seafood. Everyone wins.</div>
+      </div>
+ 
+      <div class="food-item">
+        <div class="food-name">Taberna da Rua das Flores</div>
+        <div class="food-what">🍷 Petiscos (Portuguese tapas)</div>
+        <div class="food-tip">Tiny, intimate, excellent. Book ahead. Great wine list. Perfect farewell dinner spot.</div>
+      </div>
+ 
+      <div class="section-label">Bars</div>
+ 
+      <div class="food-item">
+        <div class="food-name">Park Bar</div>
+        <div class="food-what">🏙️ Rooftop bar — Bairro Alto</div>
+        <div class="food-tip">On top of a multi-storey car park. Legendary Lisbon spot. Best sunset views. Get there early — always packed.</div>
+      </div>
+ 
+      <div class="food-item">
+        <div class="food-name">TOPO Chiado</div>
+        <div class="food-what">🌅 Rooftop bar — Chiado</div>
+        <div class="food-tip">360° views over the city and river. More upscale than Park Bar. Great cocktails.</div>
+      </div>
+ 
       <div class="food-item">
         <div class="food-name">Beigel Bake (Brick Lane)</div>
         <div class="food-what">🥯 24hr legendary bagel shop</div>
@@ -1705,6 +2465,97 @@
         </div>
       </div>
  
+ 
+      <div class="divider"></div>
+ 
+      <div class="info-card">
+        <h3>🇵🇹 Lisbon Stay</h3>
+        <div class="info-row">
+          <div class="info-label">June 21–27</div>
+          <div class="info-val">Airbnb, Bica neighbourhood, Lisbon</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Nearest Metro</div>
+          <div class="info-val">Baixa-Chiado (Green/Blue lines)</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Flight home</div>
+          <div class="info-val">June 27 from Lisbon Airport (LIS)</div>
+        </div>
+      </div>
+ 
+      <div class="info-card">
+        <h3>🚇 Lisbon Transit</h3>
+        <div class="info-row">
+          <div class="info-label">Viva Viagem card</div>
+          <div class="info-val">Buy at any Metro station — works on Metro, trams, buses, ferries</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Tram 28</div>
+          <div class="info-val">Iconic historic tram through Alfama — buy ticket on board ~€3</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Tram 15E</div>
+          <div class="info-val">To Belém from Praça da Figueira</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Sintra train</div>
+          <div class="info-val">From Rossio station ~40 min, runs every 20 min</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Cascais train</div>
+          <div class="info-val">From Cais do Sodré ~40 min, scenic coastal route</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Ferry to Almada</div>
+          <div class="info-val">From Cais do Sodré ~10 min, for Cristo Rei</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Airport Metro</div>
+          <div class="info-val">Red line direct to Aeroporto station ~30 min from centre</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Uber</div>
+          <div class="info-val">Works well in Lisbon and for beach day taxis in Sintra</div>
+        </div>
+      </div>
+ 
+      <div class="info-card">
+        <h3>⚽ Portugal World Cup Fixtures</h3>
+        <div class="info-row">
+          <div class="info-label">June 23 (your Day 2)</div>
+          <div class="info-val">Portugal vs Uzbekistan · 6:00pm local · Watch in Bairro Alto</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">June 27</div>
+          <div class="info-val">Colombia vs Portugal · 12:30am local (too late — flight day)</div>
+        </div>
+      </div>
+ 
+      <div class="info-card">
+        <h3>💡 Lisbon Tips</h3>
+        <div class="info-row">
+          <div class="info-label">Cash</div>
+          <div class="info-val">Carry some — many local tascas and markets are cash only</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Hills</div>
+          <div class="info-val">Lisbon is very hilly — wear comfortable shoes, not sandals</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Weather</div>
+          <div class="info-val">June is warm ~25°C, rarely rains, occasional Atlantic breeze</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Language</div>
+          <div class="info-val">Portuguese — most locals in tourist areas speak English</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Tipping</div>
+          <div class="info-val">Not mandatory but 5–10% appreciated at restaurants</div>
+        </div>
+      </div>
+ 
     </div>
   </div>
  
@@ -1732,16 +2583,47 @@
  
 <script>
   let currentDay = 0;
-  const TOTAL_BOOKINGS = 12;
+  let currentCity = 'london';
  
-  function showDay(n) {
-    document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('day-' + n).classList.add('active');
-    document.querySelectorAll('.tab')[n].classList.add('active');
+  function showDay(n, city) {
+    const c = city || currentCity;
+    const prefix = c === 'lisbon' ? 'lisbon-day-' : 'day-';
+    const tabsId = c === 'lisbon' ? 'lisbon-tabs' : 'london-tabs';
+    // hide all panels in this city
+    document.querySelectorAll('#' + (c === 'lisbon' ? 'lisbon-days' : 'london-days') + ' .day-panel').forEach(p => p.classList.remove('active'));
+    // deactivate tabs
+    document.querySelectorAll('#' + tabsId + ' .tab').forEach(t => t.classList.remove('active'));
+    // show selected
+    const panel = document.getElementById(prefix + n);
+    if (panel) panel.classList.add('active');
+    const tabs = document.querySelectorAll('#' + tabsId + ' .tab');
+    if (tabs[n]) tabs[n].classList.add('active');
     currentDay = n;
-    // scroll tab into view
-    document.querySelectorAll('.tab')[n].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (tabs[n]) tabs[n].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+ 
+  function switchCity(city, btn) {
+    currentCity = city;
+    // update body theme class
+    document.body.className = city;
+    // update city buttons
+    document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // show/hide city content
+    document.getElementById('london-days').classList.toggle('active', city === 'london');
+    document.getElementById('lisbon-days').classList.toggle('active', city === 'lisbon');
+    // show/hide tabs
+    document.getElementById('london-tabs').style.display = city === 'london' ? 'flex' : 'none';
+    document.getElementById('lisbon-tabs').style.display = city === 'lisbon' ? 'flex' : 'none';
+    // update header
+    if (city === 'london') {
+      document.getElementById('header-title').textContent = '🇬🇧 London 2026';
+      document.getElementById('header-sub').textContent = 'Connor & Gabby · June 12–19';
+    } else {
+      document.getElementById('header-title').textContent = '🇵🇹 Lisbon 2026';
+      document.getElementById('header-sub').textContent = 'Connor & Gabby · June 21–27';
+    }
+    showDay(0, city);
   }
  
   function showSection(name, btn) {
